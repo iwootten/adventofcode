@@ -15,6 +15,7 @@ def get_part1_answer(data):
             total = 0
     return heaviest
 
+
 def get_part2_answer(data):
     heaviest = [0, 0, 0]
     total = 0
@@ -26,6 +27,7 @@ def get_part2_answer(data):
                 heaviest = sorted(heaviest[1:] + [total])
             total = 0
     return sum(heaviest)
+
 
 if __name__ == "__main__":
     input_data = data = get_data("./data/day1_input.txt")

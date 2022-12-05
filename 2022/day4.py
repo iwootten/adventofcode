@@ -1,6 +1,10 @@
 def get_data(filename):
     with open(filename) as input_file:
-        return [[[int(c) for c in group.split("-")] for group in a.strip().split(",")] for a in input_file.readlines()]
+        return [
+            [[int(c) for c in group.split("-")] for group in a.strip().split(",")]
+            for a in input_file.readlines()
+        ]
+
 
 def get_part1_answer(data):
     total = 0
@@ -13,8 +17,11 @@ def get_part1_answer(data):
         b_min = elf_b[0]
         b_max = elf_b[1]
 
-        total += (b_min >= a_min and b_max <= a_max) or (a_min >= b_min and a_max <= b_max)
+        total += (b_min >= a_min and b_max <= a_max) or (
+            a_min >= b_min and a_max <= b_max
+        )
     return total
+
 
 def get_part2_answer(data):
     total = 0
@@ -25,6 +32,7 @@ def get_part2_answer(data):
 
         total += len(elf_a & elf_b) > 0
     return total
+
 
 if __name__ == "__main__":
     data = get_data("./data/day4_input.txt")
