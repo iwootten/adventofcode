@@ -31,10 +31,10 @@ def get_part1_answer(data):
         amount, move = instruction.strip("move ").split("from")
         from_move, to_move = move.split("to")
         for i in range(int(amount)):
-            letter_to_move = stacks[int(from_move)-1].pop()
-            stacks[int(to_move)-1].append(letter_to_move)
+            letter_to_move = stacks[int(from_move) - 1].pop()
+            stacks[int(to_move) - 1].append(letter_to_move)
 
-    code = ''
+    code = ""
     for stack in stacks:
         code += stack[-1]
     return code
@@ -69,11 +69,11 @@ def get_part2_answer(data):
         from_move, to_move = move.split("to")
         from_move, to_move, amount = int(from_move) - 1, int(to_move) - 1, int(amount)
         items_to_move = stacks[from_move][-amount:]
-        
+
         stacks[from_move] = stacks[from_move][:-amount]
         stacks[to_move] = stacks[to_move] + items_to_move
 
-    code = ''
+    code = ""
     for stack in stacks:
         code += stack[-1]
     return code

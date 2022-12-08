@@ -11,5 +11,3 @@ def test_day5_part2():
     data = get_data("./data/day5_example.txt")
     answer = get_part2_answer(data)
     assert answer == "MCD"
-
-

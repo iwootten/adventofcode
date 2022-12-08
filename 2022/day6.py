@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def get_data(filename):
     with open(filename) as input_file:
         return [a.strip() for a in input_file.readline()]

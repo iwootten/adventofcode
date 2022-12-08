@@ -25,5 +25,3 @@ def test_day6_part2():
     assert answer == 29
     answer = get_part2_answer("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")
     assert answer == 26
-
-

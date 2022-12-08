@@ -1,8 +1,10 @@
 from collections import defaultdict
 
+
 def get_data(filename):
     with open(filename) as input_file:
         return [a.strip() for a in input_file.readlines()]
+
 
 def get_directory_map(data):
     path = "/"
@@ -23,10 +25,13 @@ def get_directory_map(data):
 
             parent_path_bits = path.split("/")[:-1]
             for path_bit_index in range(0, len(parent_path_bits)):
-                parent_path = "/" + "/".join(parent_path_bits[:path_bit_index + 1]).lstrip("/")
+                parent_path = "/" + "/".join(
+                    parent_path_bits[: path_bit_index + 1]
+                ).lstrip("/")
                 if parent_path != path:
                     totals[parent_path] += int(args[0])
     return totals
+
 
 def get_part1_answer(data):
     total = 0
@@ -39,8 +44,8 @@ def get_part1_answer(data):
 
 def get_part2_answer(data):
     dir_map = get_directory_map(data)
-    
-    limit = 30000000 - (70000000 - dir_map['/'])
+
+    limit = 30000000 - (70000000 - dir_map["/"])
     for path, value in sorted(dir_map.items(), key=lambda item: item[1]):
         if value > limit:
             return value
