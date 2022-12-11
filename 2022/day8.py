@@ -13,7 +13,7 @@ def get_part1_answer(data):
             left = data[x][:y]
             visible |= height > max(left)
             # print(f"Left: {left}")
-            right = data[x][y+1:]
+            right = data[x][y + 1 :]
             visible |= height > max(right)
             # print(f"Right: {right}")
             up = [data[i][y] for i in range(0, x)]
@@ -25,9 +25,11 @@ def get_part1_answer(data):
             count += 1 if visible else 0
     return count
 
+
 def get_distance(trees, height):
     view = [i + 1 for i, v in enumerate(trees) if v >= height]
     return len(trees) if len(view) == 0 else view[0]
+
 
 def get_part2_answer(data):
     best_scenic_score = 0
@@ -36,7 +38,7 @@ def get_part2_answer(data):
             height = data[x][y]
 
             left = data[x][:y][::-1]
-            right = data[x][y+1:]
+            right = data[x][y + 1 :]
             up = [data[i][y] for i in range(0, x)][::-1]
             down = [data[i][y] for i in range(x + 1, len(data[x]))]
 
