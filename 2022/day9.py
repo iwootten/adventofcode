@@ -19,24 +19,25 @@ class Point:
 
     def __repr__(self) -> str:
         return f"{self.x, self.y}"
+
     def __eq__(self, a: object) -> bool:
         return a.x == self.x and a.y == self.y
 
     def should_move_straight(self, a):
-        return (
-            ((a.x == self.x) and (abs(self.y - a.y) == 2)) or ((a.y == self.y) and (abs(self.x - a.x) == 2))
+        return ((a.x == self.x) and (abs(self.y - a.y) == 2)) or (
+            (a.y == self.y) and (abs(self.x - a.x) == 2)
         )
 
     def diff_x(self, a):
         return self.x - a.x
-    
+
     def diff_y(self, a):
         return self.y - a.y
 
     def should_move_diagonally(self, a):
         return (
-            not self.should_move_straight(a) and
-            abs(self.diff_x(a)) > 1
+            not self.should_move_straight(a)
+            and abs(self.diff_x(a)) > 1
             or abs(self.diff_y(a)) > 1
         )
 
@@ -48,8 +49,9 @@ directions = {
     "U": (0, 1),
 }
 
-def print_rope(head, knots, size, origin=(0,0)):
-    for y in range(origin[1] + size, origin[1] -1, -1):
+
+def print_rope(head, knots, size, origin=(0, 0)):
+    for y in range(origin[1] + size, origin[1] - 1, -1):
         for x in range(origin[0], origin[0] + size):
             if Point(x, y) == head:
                 print("H", end="")
@@ -59,6 +61,7 @@ def print_rope(head, knots, size, origin=(0,0)):
                 print(".", end="")
         print("")
     print()
+
 
 def get_part1_answer(data):
     head, tail = Point(0, 0), Point(0, 0)
@@ -79,6 +82,7 @@ def get_part1_answer(data):
             if (tail.x, tail.y) not in tail_list:
                 tail_list.append((tail.x, tail.y))
     return len(tail_list)
+
 
 def get_part2_answer(data):
     head = Point(0, 0)

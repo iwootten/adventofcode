@@ -1,9 +1,7 @@
 def get_data(filename):
     with open(filename) as input_file:
-        return [
-            l.strip()
-            for l in input_file.readlines()
-        ]
+        return [l.strip() for l in input_file.readlines()]
+
 
 def get_part1_answer(data):
     register = 1
@@ -25,6 +23,7 @@ def get_part1_answer(data):
             register += int(line.split()[1])
 
     return strength
+
 
 def get_part2_answer(data):
     register = 1
@@ -49,7 +48,7 @@ def get_part2_answer(data):
     for i in range(240):
         col = i % 40
         row = int(i / 40)
-        
+
         if i in changes:
             sprite = changes[i]
 
@@ -57,10 +56,11 @@ def get_part2_answer(data):
             image += "#"
         else:
             image += "."
-        
+
         if col == 39:
             image += "\n"
     return image
+
 
 if __name__ == "__main__":
     data = get_data("./data/day10_input.txt")
